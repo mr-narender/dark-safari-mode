@@ -1,0 +1,125 @@
+/* Default styling (light mode) */
+body, html {
+    background-color: white !important; /* Ensure the base background is white */
+    color: black !important; /* Default text color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+    body, html {
+        background-color: #121212 !important; /* Dark background */
+        color: #ffffff !important; /* Light text */
+    }
+
+    * {
+        background-color: transparent !important; /* Transparent background */
+        color: inherit !important; /* Inherit text color */
+    }
+
+    /* Specific fix for lists and dropdowns */
+    ul, ol, select, dropdown {
+        background-color: #333333 !important; /* Dark background for better visualization */
+        color: #ffffff !important; /* Ensure readable text */
+        border-color: #555555 !important; /* Subtle border */
+        padding: 0.5rem; /* Add some padding for clarity */
+    }
+
+    /* Override inline styles on elements */
+    [style*="background-color"] {
+        background-color: #121212 !important; /* Force dark background */
+    }
+    [style*="color"] {
+        color: #ffffff !important; /* Force light text */
+    }
+
+    /* Link styles */
+    a {
+        color: #1e90ff !important; /* Light blue for links */
+        transition: all 0.3s ease;
+    }
+    a:visited {
+        color: #9acd32 !important; /* Softer green for visited links */
+    }
+
+    /* Images or media content with white backgrounds */
+    img {
+        filter: brightness(80%) !important; /* Dim overly bright images */
+    }
+
+    /* Input fields, textareas, and buttons */
+    input, textarea, button, select {
+        background-color: #333333 !important; /* Darker input backgrounds */
+        color: #ffffff !important; /* Light text */
+        border-color: #555555 !important; /* Subtle border */
+    }
+}
+
+/* Hover effect: Shaking rainbow animation */
+a:hover {
+    animation: shake 0.3s ease-in-out infinite, rainbow 1s linear infinite;
+    text-shadow: 0 0 4px red, 0 0 8px orange, 0 0 12px yellow, 
+                 0 0 16px green, 0 0 20px blue, 0 0 24px indigo, 0 0 28px violet;
+}
+
+/* Exclude elements with dialog box classes from transparency */
+*:not(dialog):not(.modal):not(.popup):not([role="dialog"]):not([role="alertdialog"]) {
+    background-color: transparent !important; /* Transparent background for all other elements */
+    color: inherit !important; /* Inherit text color */
+}
+
+/* Styling for top-layer popups or modal boxes */
+dialog, .modal, .popup, [role="dialog"], [role="alertdialog"], .lightbox, .overlay, .alert {
+    background-color: #333333 !important; /* Ensure dark background */
+    color: #ffffff !important; /* Ensure readable text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important; /* Subtle shadow for elevation */
+    padding: 1rem; /* Add padding for readability */
+    border-radius: 8px; /* Optional: rounded corners for a modern look */
+    border: 1px solid #555555 !important; /* Optional: border for separation */
+    z-index: 10000 !important; /* Ensure it's on top */
+}
+
+
+/* Shake animation */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px);
+    }
+    50% {
+        transform: translateX(2px);
+    }
+    75% {
+        transform: translateX(-2px);
+    }
+}
+
+/* Rainbow color cycle */
+@keyframes rainbow {
+    0% {
+        color: red;
+    }
+    14% {
+        color: orange;
+    }
+    28% {
+        color: yellow;
+    }
+    42% {
+        color: green;
+    }
+    56% {
+        color: blue;
+    }
+    70% {
+        color: indigo;
+    }
+    84% {
+        color: violet;
+    }
+    100% {
+        color: red;
+    }
+}
